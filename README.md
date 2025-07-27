@@ -1,4 +1,4 @@
-# 🦀 Bare Metal STM32F4 Rust Template
+# Bare Metal STM32F4 Rust Template 🦀
 
 This is a template project for embedded Rust development on the **STM32F4** microcontroller family. It provides a minimal but complete setup to start writing `no_std` Rust code on Cortex-M microcontrollers. Based on [The Rusty Bits](https://www.youtube.com/@therustybits) tutorial series.
 
@@ -56,12 +56,6 @@ If you prefer to set up the development environment manually, follow these steps
     cargo install cargo-binutils
    ```
 
-5. **Install `cargo-embed`:**
-
-   ```sh
-   cargo install cargo-embed
-   ```
-
 ### Building the Project
 
 To check the project for errors, run:
@@ -70,7 +64,7 @@ To check the project for errors, run:
 cargo check
 ```
 
-To build the project, run the following command in the terminal:
+To build the project, run:
 
 ```sh
 cargo build
@@ -126,6 +120,14 @@ Replace `STM32F401RE` with the appropriate chip name for your target device if y
    This ensures that it uses the correct target for code analysis and checks.
 
 - **The cortex-m-rt crate:**
+
+   The `cortex-m-rt` crate provides the runtime support for Cortex-M microcontrollers, including the entry point and interrupt handling. It is essential for any embedded Rust project targeting ARM Cortex-M devices. The crate [documentation](https://docs.rs/cortex-m-rt/latest/cortex_m_rt/) provides detailed information on how to use it. The file `memory.x` is one of the key components of this crate, as it defines the memory layout for the target device. It specifies the memory regions, such as flash and RAM, which are crucial for linking and running the application correctly. The documentation also explains how to customize the `main.rs` file to set up the entry point.
+
+   Other ARM platforms may require different runtime support crates, such as `cortex-r-rt` for Cortex-R devices or `cortex-a-rt` for Cortex-A devices. You can find more information about these crates in their respective documentation.
+
+- **The panic handler:**
+
+   The `panic_halt` crate is used to handle panics in embedded Rust applications. It provides a simple panic handler that halts the program when a panic occurs, which is suitable for bare-metal applications where you may not have a sophisticated error handling mechanism. You can find more information about the `panic-halt` crate in its [documentation](https://docs.rs/panic-halt/latest/panic_halt/).
 
 ## License
 
