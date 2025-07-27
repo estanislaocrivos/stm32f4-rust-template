@@ -30,12 +30,12 @@ To get started with this template, follow these steps to set up your development
 
    You may find more information about the available targets on the [Rust platform support page](https://doc.rust-lang.org/beta/rustc/platform-support.html).
 
-3. **Install `probe-rs`:**
+3. **Install `cargo-embed`:**
 
-   `probe-rs` is a tool for flashing and debugging embedded devices. You can install it using Cargo:
+   `cargo-embed` is a tool for flashing and debugging embedded devices. You can install it using Cargo:
 
    ```sh
-   cargo install probe-rs
+   cargo install cargo-embed
    ```
 
 4. **Install `llvm-tools` for `cargo-binutils`:**
