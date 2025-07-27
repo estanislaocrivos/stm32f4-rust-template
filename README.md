@@ -104,6 +104,13 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="XXXX", ATTR{idProduct}=="YYYY", MODE="0666", 
 SUBSYSTEM=="usb", ATTR{idVendor}=="XXXX", ATTR{idProduct}=="YYYY", MODE="0666", GROUP="plugdev"
 ```
 
+After saving the file, reload the udev rules:
+
+```sh
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
 ## Porting this template to other ARM platforms
 
 ### Adding support for other ARM targets
