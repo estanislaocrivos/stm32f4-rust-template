@@ -47,7 +47,7 @@ To get started with this template, follow these steps to set up your development
    ```
 
    ```sh
-    cargo install cargo-binutils
+   cargo install cargo-binutils
    ```
 
 ### Building the Project
@@ -89,17 +89,17 @@ Replace `STM32F401RE` with the appropriate chip name for your target device if y
    When developing for embedded targets, you need to tell Rust which target architecture you are compiling for. For example, the STM32F4 family of microcontrollers are based on the ARM Cortex-M4 architecture, which implements the ARMv7E-M architecture. You can find out the architecture of your ARM microcontroller by searching its model on the [ARM developer website](https://developer.arm.com/). On Rust's [platform support page](https://doc.rust-lang.org/beta/rustc/platform-support.html) you can find the corresponding target for your architecture. In this case, the target for ARMv7E-M architecture is `thumbv7em-none-eabihf`, which also supports hardware floating point operations. Target's name is usually in the format `<arch><sub>-<vendor>-<sys>-<env>`, where:
 
    ```text
-      <arch>: The architecture of the target (e.g., `thumb` for ARM Cortex-M4).
-      <sub>: The sub-architecture or variant (e.g., `v7em` for ARMv7E-M).
-      <vendor> [optional]: The vendor of the target (e.g., `eabi` for the Embedded Application Binary Interface).
-      <sys>: The operating system or environment (e.g., `none` for bare-metal targets).
-      <env>: The environment or ABI (e.g., `eabi` for the Embedded ABI).
+   <arch>: The architecture of the target (e.g., `thumb` for ARM Cortex-M4).
+   <sub>: The sub-architecture or variant (e.g., `v7em` for ARMv7E-M).
+   <vendor> [optional]: The vendor of the target (e.g., `eabi` for the Embedded Application Binary Interface).
+   <sys>: The operating system or environment (e.g., `none` for bare-metal targets).
+   <env>: The environment or ABI (e.g., `eabi` for the Embedded ABI).
    ```
 
    You can add target support by running the following command:
 
    ```bash
-      rustup target add thumbv7em-none-eabihf
+   rustup target add thumbv7em-none-eabihf
    ```
 
    Indicating the target inside the `.cargo/config.toml` file tells Cargo to use this target when building the project, and allows you to simply run `cargo build` without specifying the target each time.
