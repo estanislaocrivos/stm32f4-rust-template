@@ -80,7 +80,7 @@ Before flashing, ensure that the flash and RAM memory regions specified in your 
 cargo flash --release --chip STM32F401RE
 ```
 
-Replace `STM32F401RE` with the appropriate chip name for your target device if you are using a different STM32F4 microcontroller. Also, replacing the target chip name in the `Embed.toml` file helps to avoid adding the `--chip` flag every time.
+Replace `STM32F401RE` with the appropriate chip name for your target device if you are using a different STM32F4 microcontroller. Also, replacing the target chip name in the `Embed.toml` file helps to avoid adding the `--chip` flag every time (may not work for all targets).
 
 ## Porting this template to other ARM platforms
 
