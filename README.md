@@ -82,6 +82,35 @@ cargo flash --release --chip STM32F401RE
 
 Replace `STM32F401RE` with the appropriate chip name for your target device if you are using a different STM32F4 microcontroller. Also, replacing the target chip name in the `Embed.toml` file helps to avoid adding the `--chip` flag every time (may not work for all targets).
 
+**Note:** on Linux you may need to add your user to the `plugdev` group to access the USB device. First, check the STM32 platform's USB ID XXXX:YYYY by running:
+
+```sh
+lsusb
+```
+
+Then, create a udev rule file for the device:
+
+```sh
+sudo nano /etc/udev/rules.d/99-stlink.rules
+```
+
+Add the following lines to the file, replacing `XXXX` and `YYYY` with the USB ID of your STM32 device:
+
+```text
+# STMicroelectronics ST-LINK/V2
+SUBSYSTEM=="usb", ATTR{idVendor}=="XXXX", ATTR{idProduct}=="YYYY", MODE="0666", GROUP="plugdev"
+
+# STMicroelectronics ST-LINK/V3
+SUBSYSTEM=="usb", ATTR{idVendor}=="XXXX", ATTR{idProduct}=="YYYY", MODE="0666", GROUP="plugdev"
+```
+
+After saving the file, reload the udev rules:
+
+```sh
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
 ## Porting this template to other ARM platforms
 
 ### Adding support for other ARM targets
