@@ -6,13 +6,7 @@ This is a template project for embedded Rust development on the **STM32F4** micr
 
 ### Prerequisites
 
-An `install.sh` script is provided to automate the installation of the required tools and dependencies. You can run it with:
-
-```sh
-./install.sh
-```
-
-If you prefer to set up the development environment manually, follow these steps:
+To get started with this template, follow these steps to set up your development environment:
 
 1. **Install the Rust toolchain:**
 

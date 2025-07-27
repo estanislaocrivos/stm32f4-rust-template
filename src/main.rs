@@ -5,9 +5,8 @@ use cortex_m_rt::entry;
 use panic_halt as _;
 mod stm32f401re_blinky;
 
-#[entry] // Indicates where main() starts.
+#[entry]
 fn main() -> ! {
-    // Uncomment next line for a minimal blinky example on STM32F401RE platform
-    stm32f401re_blinky::blinky();
-    // loop {}
+    // stm32f401re_blinky::blinky(); // Uncomment for a minimal blinky example on STM32F401RE platform
+    loop {}
 }
