@@ -80,7 +80,7 @@ Before flashing, ensure that the flash and RAM memory regions specified in your 
 cargo flash --release --chip STM32F401RE
 ```
 
-Replace `STM32F401RE` with the appropriate chip name for your target device if you are using a different STM32F4 microcontroller.
+Replace `STM32F401RE` with the appropriate chip name for your target device if you are using a different STM32F4 microcontroller. Also, replacing the target chip name in the `Embed.toml` file helps to avoid adding the `--chip` flag every time.
 
 ## Porting this template to other ARM platforms
 
@@ -102,13 +102,13 @@ Replace `STM32F401RE` with the appropriate chip name for your target device if y
 
    Indicating the target inside the `.cargo/config.toml` file tells Cargo to use this target when building the project, and allows you to simply run `cargo build` without specifying the target each time.
 
-   If using the `rust-analyzer` extension in Visual Studio Code, you may add the corresponding target to your `.vscode/settings.json` file:
+   If using the `rust-analyzer` extension in Visual Studio Code, you may replace the corresponding target to your `.vscode/settings.json` file:
 
    ```json
    {
     "rust-analyzer.check.allTargets": false,
     "rust-analyzer.cargo.target": "thumbv7em-none-eabihf"
-   }  
+   }
    ```
 
    This ensures that it uses the correct target for code analysis and checks.
@@ -122,6 +122,10 @@ Replace `STM32F401RE` with the appropriate chip name for your target device if y
 - **The panic handler:**
 
    The `panic_halt` crate is used to handle panics in embedded Rust applications. It provides a simple panic handler that halts the program when a panic occurs, which is suitable for bare-metal applications where you may not have a sophisticated error handling mechanism. You can find more information about the `panic-halt` crate in its [documentation](https://docs.rs/panic-halt/latest/panic_halt/).
+
+- **The stm32f4xx-hal crate:**
+
+   The `stm32f4xx-hal` crate is a hardware abstraction layer (HAL) for the STM32F4 family of microcontrollers. It provides a set of APIs to interact with the hardware peripherals, such as GPIO, timers, and communication interfaces. The crate is designed to be used in conjunction with the `cortex-m` and `cortex-m-rt` crates to provide a complete embedded Rust development experience. You can find more information about the `stm32f4xx-hal` crate in its [documentation](https://docs.rs/stm32f4xx-hal/latest/stm32f4xx_hal/).
 
 ## License
 
