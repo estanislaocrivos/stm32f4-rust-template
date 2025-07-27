@@ -1,3 +1,4 @@
+/* Linker script for memory map on STM32F401RE */
 MEMORY
 {
   FLASH : ORIGIN = 0x08000000, LENGTH = 512K

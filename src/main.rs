@@ -1,23 +1,18 @@
-#![no_std]
+#![no_std] // On embedded targets we do not include the std. library
 #![no_main]
 
 use cortex_m_rt::entry;
-use panic_halt as _;
+use panic_halt as _; // Tells the compiler how to handle panic!
 use stm32f4xx_hal::{pac, prelude::*};
 
-#[entry]
+#[entry] // Indicates where main() starts.
 fn main() -> ! {
-    // Acess peripherals
-    let dp = pac::Peripherals::take().unwrap();
+    // Minimal blinky example
 
-    // Enable RCC and configure clocks
+    let dp = pac::Peripherals::take().unwrap();
     let rcc = dp.RCC.constrain();
     let _clocks = rcc.cfgr.freeze();
-
-    // Split GPIOA
     let gpioa = dp.GPIOA.split();
-
-    // Conf. PA5 as output
     let mut led = gpioa.pa5.into_push_pull_output();
 
     loop {

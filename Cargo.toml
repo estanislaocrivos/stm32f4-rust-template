@@ -1,5 +1,5 @@
 [package]
-name = "rust-stm32f401re-template"
+name = "stm32f4-rust-template"
 version = "0.1.0"
 edition = "2021"
 
